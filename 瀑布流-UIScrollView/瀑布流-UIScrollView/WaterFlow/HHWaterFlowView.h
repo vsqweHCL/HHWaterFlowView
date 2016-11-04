@@ -51,4 +51,5 @@ typedef enum {
 
 /** 刷新数据 */
 - (void)reloadData;
+- (id)dequeueReusableCellWithIdentifiter:(NSString *)identifiter;
 @end

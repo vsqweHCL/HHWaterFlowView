@@ -16,10 +16,24 @@
 @interface HHWaterFlowView ()
 /** cell的Frame */
 @property (nonatomic, strong) NSMutableArray *cellFrames;
+
+/** 存放所有正在展示的cell */
+@property (nonatomic, strong) NSMutableDictionary *displayingCells;
+
+/** 缓存池（用Set，存放离开屏幕的cell） */
+@property (nonatomic, strong) NSMutableSet *reusableCells;
 @end
 
 @implementation HHWaterFlowView
 #pragma mark - 初始化
+/** 懒加载 */
+- (NSMutableSet *)reusableCells
+{
+    if (_reusableCells == nil) {
+        _reusableCells = [NSMutableSet set];
+    }
+    return _reusableCells;
+}
 /** 懒加载 */
 - (NSMutableArray *)cellFrames
 {
@@ -27,6 +41,14 @@
         _cellFrames = [NSMutableArray array];
     }
     return _cellFrames;
+}
+/** 懒加载 */
+- (NSMutableDictionary *)displayingCells
+{
+    if (_displayingCells == nil) {
+        _displayingCells = [NSMutableDictionary dictionary];
+    }
+    return _displayingCells;
 }
 
 #pragma mark - 公共接口
@@ -93,9 +115,9 @@
         maxYOfColumns[cellColumn] = CGRectGetMaxY(cellFrame);
         
         // 显示cell
-        HHWaterFlowViewCell *cell = [self.dataSource waterflowView:self cellAtIndex:i];
-        cell.frame = cellFrame;
-        [self addSubview:cell];
+//        HHWaterFlowViewCell *cell = [self.dataSource waterflowView:self cellAtIndex:i];
+//        cell.frame = cellFrame;
+//        [self addSubview:cell];
     }
     
     // 设置contentSize
@@ -108,8 +130,70 @@
     contentH += bottomM;
     self.contentSize = CGSizeMake(0, contentH);
 }
+/** 当UIScrollV滚动的时候也会调用这个方法 */
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // 向数据源索要对应位置的cell
+    NSUInteger numberOfCells = self.cellFrames.count;
+    for (NSInteger i = 0; i < numberOfCells; i++) {
+        // 取出i位置的frame
+        CGRect cellFrame = [self.cellFrames[i] CGRectValue];
+        
+        // 优先从字典中取出i位置的cell
+        HHWaterFlowViewCell *cell =  self.displayingCells[@(i)];
+        
+        // 判断i位置对应的frame在不在屏幕上
+        if ([self isInScreen:cellFrame]) { // 在屏幕上
+            
+            if (cell == nil) {
+                cell = [self.dataSource waterflowView:self cellAtIndex:i];
+                cell.frame = cellFrame;
+                [self addSubview:cell];
+                
+                // 存放到字典中
+                self.displayingCells[@(i)] = cell;
+            }
+        }
+        else { // 不在屏幕上
+            if (cell) {
+                // 从UIScrollView和字典中移除
+                [cell removeFromSuperview];
+                [self.displayingCells removeObjectForKey:@(i)];
+                
+                // 存放进缓存池
+                [self.reusableCells addObject:cell];
+            }
+        }
+    }
+    
+//    NSLog(@"%ld",self.subviews.count); 
+}
+- (id)dequeueReusableCellWithIdentifiter:(NSString *)identifiter
+{
+    __block HHWaterFlowViewCell *reusableCell = nil;
+    [self.reusableCells enumerateObjectsUsingBlock:^(HHWaterFlowViewCell *cell, BOOL * _Nonnull stop) {
+        if ([cell.identifier isEqualToString:identifiter]) {
+            reusableCell = cell;
+            *stop = YES;
+        }
+    }];
+    
+    if (reusableCell) { // 从缓存中移除
+        [self.reusableCells removeObject:reusableCell];
+    }
+    return reusableCell;
+}
 
 #pragma mark - 私有方法
+/** 判断一个frame有无显示在屏幕上 */
+- (BOOL)isInScreen:(CGRect)frame
+{
+    return (CGRectGetMaxY(frame) > self.contentOffset.y &&
+            CGRectGetMidY(frame) < self.contentOffset.y + self.bounds.size.height);
+}
+
 /** 返回间距 */
 - (CGFloat)marginForType:(HHWaterFlowViewMarginType)type
 {
@@ -139,6 +223,26 @@
     }
     else {
         return HHWaterFlowViewDefaultCellH;
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    if (![self.delegate respondsToSelector:@selector(waterflowView:didSelectAtIndex:)]) return;
+        
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+    
+    __block NSNumber *selectedIndex = nil;
+    [self.displayingCells enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, HHWaterFlowViewCell  *cell, BOOL * _Nonnull stop) {
+        if (CGRectContainsPoint(cell.frame, point)) {
+            selectedIndex = key;
+            *stop = YES;
+        }
+    }];
+    
+    if (selectedIndex) {
+        [self.delegate waterflowView:self didSelectAtIndex:selectedIndex.unsignedIntegerValue];
     }
 }
 @end

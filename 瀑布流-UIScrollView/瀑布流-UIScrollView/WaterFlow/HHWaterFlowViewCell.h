@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface HHWaterFlowViewCell : UIView
-
+/** 标示 */
+@property (nonatomic, copy) NSString *identifier;
 @end

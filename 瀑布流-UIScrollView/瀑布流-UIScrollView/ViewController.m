@@ -35,7 +35,7 @@
 #pragma mark - 数据源
 - (NSUInteger)numberOfCellsInWaterflowView:(HHWaterFlowView *)waterFlowView
 {
-    return 20;
+    return 50;
 }
 - (NSUInteger)numberOfColumnsInWaterflowView:(HHWaterFlowView *)waterFlowView
 {
@@ -43,8 +43,22 @@
 }
 - (HHWaterFlowViewCell *)waterflowView:(HHWaterFlowView *)waterFlowView cellAtIndex:(NSUInteger)index
 {
-    HHWaterFlowViewCell *cell = [[HHWaterFlowViewCell alloc] init];
-    cell.backgroundColor = RandomColor;
+    static NSString *ID = @"cell";
+    HHWaterFlowViewCell *cell = [waterFlowView dequeueReusableCellWithIdentifiter:ID];
+    if (cell == nil) {
+        cell = [[HHWaterFlowViewCell alloc] init];
+        cell.identifier = ID;
+        cell.backgroundColor = RandomColor;
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.tag = 10;
+        label.frame = CGRectMake(0, 0, 30, 30);
+        [cell addSubview:label];
+    }
+    UILabel *label = (UILabel *)[cell viewWithTag:10];
+    label.text = [NSString stringWithFormat:@"%ld",index];
+    
+//    NSLog(@"%ld %p",index,cell);
     return cell;
 }
 #pragma mark - 代理
