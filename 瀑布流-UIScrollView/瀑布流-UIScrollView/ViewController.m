@@ -8,16 +8,30 @@
 
 #import "ViewController.h"
 #import "HHWaterFlowView.h"
-#import "HHWaterFlowViewCell.h"
+#import "HHShopCell.h"
+#import "HHShop.h"
+#import "MJExtension.h"
 
 @interface ViewController () <HHWaterFlowViewDelegate,HHWaterFlowViewDataSource>
 
+/** 数据 */
+@property (nonatomic, strong) NSMutableArray *datas;
 @end
 
 
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 @implementation ViewController
+/** 懒加载 */
+- (NSMutableArray *)datas
+{
+    if (_datas == nil) {
+        NSArray *shops = [HHShop objectArrayWithFilename:@"product.plist"];
+        _datas = [NSMutableArray array];
+        [_datas addObjectsFromArray:shops];
+    }
+    return _datas;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,47 +43,29 @@
     waterflowView.delegate = self;
     [self.view addSubview:waterflowView];
     
-    [waterflowView reloadData];
 }
 
 #pragma mark - 数据源
-- (NSUInteger)numberOfCellsInWaterflowView:(HHWaterFlowView *)waterFlowView
+- (NSInteger)numberOfCellsInWaterflowView:(HHWaterFlowView *)waterFlowView
 {
-    return 50;
+    return self.datas.count;
 }
-- (NSUInteger)numberOfColumnsInWaterflowView:(HHWaterFlowView *)waterFlowView
+- (NSInteger)numberOfColumnsInWaterflowView:(HHWaterFlowView *)waterFlowView
 {
-    return 3;
+    return 4;
 }
-- (HHWaterFlowViewCell *)waterflowView:(HHWaterFlowView *)waterFlowView cellAtIndex:(NSUInteger)index
+- (HHWaterFlowViewCell *)waterflowView:(HHWaterFlowView *)waterFlowView cellAtIndex:(NSInteger)index
 {
-    static NSString *ID = @"cell";
-    HHWaterFlowViewCell *cell = [waterFlowView dequeueReusableCellWithIdentifiter:ID];
-    if (cell == nil) {
-        cell = [[HHWaterFlowViewCell alloc] init];
-        cell.identifier = ID;
-        cell.backgroundColor = RandomColor;
-        
-        UILabel *label = [[UILabel alloc] init];
-        label.tag = 10;
-        label.frame = CGRectMake(0, 0, 30, 30);
-        [cell addSubview:label];
-    }
-    UILabel *label = (UILabel *)[cell viewWithTag:10];
-    label.text = [NSString stringWithFormat:@"%ld",index];
-    
+    HHShopCell *cell = [HHShopCell cellWithWaterflowView:waterFlowView];
+    cell.shop = self.datas[index];
 //    NSLog(@"%ld %p",index,cell);
     return cell;
 }
 #pragma mark - 代理
-- (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView heightAtIndex:(NSUInteger)index
+- (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView heightAtIndex:(NSInteger)index
 {
-    switch (index % 3) {
-        case 0: return 70;
-        case 1: return 100;
-        case 2: return 90;
-        default: return 110;
-    }
+    HHShop *shop = self.datas[index];
+    return waterFlowView.cellWidth * shop.h / shop.w;
 }
 - (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView marginForType:(HHWaterFlowViewMarginType)type
 {
@@ -83,7 +79,7 @@
         default: return 5;
     }
 }
-- (void)waterflowView:(HHWaterFlowView *)waterFlowView didSelectAtIndex:(NSUInteger)index
+- (void)waterflowView:(HHWaterFlowView *)waterFlowView didSelectAtIndex:(NSInteger)index
 {
     NSLog(@"点击了第%ld个cell",index);
 }

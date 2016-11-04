@@ -22,22 +22,22 @@ typedef enum {
 @protocol HHWaterFlowViewDataSource <NSObject>
 @required
 /** 一共有多少个数据 */
-- (NSUInteger)numberOfCellsInWaterflowView:(HHWaterFlowView *)waterFlowView;
+- (NSInteger)numberOfCellsInWaterflowView:(HHWaterFlowView *)waterFlowView;
 /** 返回index位置对应的cell */
-- (HHWaterFlowViewCell *)waterflowView:(HHWaterFlowView *)waterFlowView cellAtIndex:(NSUInteger)index;
+- (HHWaterFlowViewCell *)waterflowView:(HHWaterFlowView *)waterFlowView cellAtIndex:(NSInteger)index;
 
 @optional
 /** 一共有多少列 */
-- (NSUInteger)numberOfColumnsInWaterflowView:(HHWaterFlowView *)waterFlowView;
+- (NSInteger)numberOfColumnsInWaterflowView:(HHWaterFlowView *)waterFlowView;
 @end
 
 @protocol HHWaterFlowViewDelegate <UIScrollViewDelegate>
 
 @optional
 /** 第index位置cell对应的高度 */
-- (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView heightAtIndex:(NSUInteger)index;
+- (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView heightAtIndex:(NSInteger)index;
 /** 选中第index位置的cell */
-- (void)waterflowView:(HHWaterFlowView *)waterFlowView didSelectAtIndex:(NSUInteger)index;
+- (void)waterflowView:(HHWaterFlowView *)waterFlowView didSelectAtIndex:(NSInteger)index;
 /** 返回间距 */
 - (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView marginForType:(HHWaterFlowViewMarginType)type;
 @end
@@ -51,5 +51,8 @@ typedef enum {
 
 /** 刷新数据 */
 - (void)reloadData;
+
+- (CGFloat)cellWidth;
+
 - (id)dequeueReusableCellWithIdentifiter:(NSString *)identifiter;
 @end

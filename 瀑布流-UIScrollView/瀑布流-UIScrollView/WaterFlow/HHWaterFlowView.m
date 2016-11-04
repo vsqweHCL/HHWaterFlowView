@@ -52,17 +52,33 @@
 }
 
 #pragma mark - 公共接口
+- (CGFloat)cellWidth
+{
+    // 总列数
+    NSInteger numberOfColumns = [self numberOfColumns];
+    CGFloat leftM = [self marginForType:HHWaterFlowViewMarginTypeLeft];
+    CGFloat rightM = [self marginForType:HHWaterFlowViewMarginTypeRight];
+    CGFloat columnM = [self marginForType:HHWaterFlowViewMarginTypeColumn];
+    CGFloat cellW = (self.frame.size.width - leftM - rightM - (numberOfColumns - 1) * columnM) / numberOfColumns;
+    return cellW;
+}
 /** 
  * 刷新数据
  * 1.计算每一个cell的frame
  */
 - (void)reloadData
 {
+    [self.displayingCells.allValues
+      makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self.displayingCells removeAllObjects];
+    [self.cellFrames removeAllObjects];
+    [self.reusableCells removeAllObjects];
+    
     // cell的总数
-    NSUInteger numberOfCells = [self.dataSource numberOfCellsInWaterflowView:self];
+    NSInteger numberOfCells = [self.dataSource numberOfCellsInWaterflowView:self];
     
     // 总列数
-    NSUInteger numberOfColumns = [self numberOfColumns];
+    NSInteger numberOfColumns = [self numberOfColumns];
     
     // 间距
     CGFloat topM = [self marginForType:HHWaterFlowViewMarginTypeTop];
@@ -81,22 +97,26 @@
         maxYOfColumns[i] = 0.0;
     }
     
+    
     // 计算所有cell的frame
-    for (NSUInteger i = 0; i < numberOfCells; i++) {
+    for (NSInteger i = 0; i < numberOfCells; i++) {
+        
+        
+        // 询问代理i位置的高度
+        CGFloat cellH = [self heightAtIndex:i];
         // cell处在第几列,最短的一列
         NSUInteger cellColumn = 0;
         // cell所处那列的最大Y值，最短那一列的最大Y值
         CGFloat maxYOfCellColumn = maxYOfColumns[cellColumn];
         
-        for (NSInteger j = 1; j < numberOfColumns; j++) {
+        
+        for (NSInteger j = 0; j < numberOfColumns; j++) {
             if (maxYOfColumns[j] < maxYOfCellColumn) {
                 cellColumn = j;
                 maxYOfCellColumn = maxYOfColumns[j];
             }
         }
         
-        // 询问代理i位置的高度
-        CGFloat cellH = [self heightAtIndex:i];
         
         CGFloat cellX = leftM + cellColumn * (cellW + columnM);
         CGFloat cellY = 0;
@@ -129,6 +149,8 @@
     }
     contentH += bottomM;
     self.contentSize = CGSizeMake(0, contentH);
+    
+    [self setNeedsLayout];
 }
 /** 当UIScrollV滚动的时候也会调用这个方法 */
 - (void)layoutSubviews
@@ -136,7 +158,7 @@
     [super layoutSubviews];
     
     // 向数据源索要对应位置的cell
-    NSUInteger numberOfCells = self.cellFrames.count;
+    NSInteger numberOfCells = self.cellFrames.count;
     for (NSInteger i = 0; i < numberOfCells; i++) {
         // 取出i位置的frame
         CGRect cellFrame = [self.cellFrames[i] CGRectValue];
@@ -187,11 +209,16 @@
 }
 
 #pragma mark - 私有方法
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    [self reloadData];
+}
+
 /** 判断一个frame有无显示在屏幕上 */
 - (BOOL)isInScreen:(CGRect)frame
 {
-    return (CGRectGetMaxY(frame) > self.contentOffset.y &&
-            CGRectGetMidY(frame) < self.contentOffset.y + self.bounds.size.height);
+    return ((CGRectGetMaxY(frame) > self.contentOffset.y) &&
+            (CGRectGetMidY(frame) < self.contentOffset.y + self.frame.size.height));
 }
 
 /** 返回间距 */
@@ -206,7 +233,7 @@
 }
 
 /** 返回多少列 */
-- (NSUInteger)numberOfColumns
+- (NSInteger)numberOfColumns
 {
     if ([self.dataSource respondsToSelector:@selector(numberOfColumnsInWaterflowView:)]) {
         return [self.dataSource numberOfColumnsInWaterflowView:self];
@@ -216,7 +243,7 @@
     }
 }
 /** 返回index的高度 */
-- (CGFloat)heightAtIndex:(NSUInteger)index
+- (CGFloat)heightAtIndex:(NSInteger)index
 {
     if ([self.delegate respondsToSelector:@selector(waterflowView:heightAtIndex:)]) {
         return [self.delegate waterflowView:self heightAtIndex:index];
@@ -245,4 +272,17 @@
         [self.delegate waterflowView:self didSelectAtIndex:selectedIndex.unsignedIntegerValue];
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
