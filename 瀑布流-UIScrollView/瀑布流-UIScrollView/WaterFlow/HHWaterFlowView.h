@@ -49,4 +49,6 @@ typedef enum {
 /** 代理 */
 @property (nonatomic, weak) id<HHWaterFlowViewDelegate> delegate;
 
+/** 刷新数据 */
+- (void)reloadData;
 @end
