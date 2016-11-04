@@ -15,7 +15,7 @@
 @end
 
 
-#define RandomColor [UIColor colorWithRed:arc4random_uniform(256/255.0) green:arc4random_uniform(256/255.0) blue:arc4random_uniform(256/255.0) alpha:1.0]
+#define RandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 @implementation ViewController
 
@@ -50,7 +50,12 @@
 #pragma mark - 代理
 - (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView heightAtIndex:(NSUInteger)index
 {
-    return 100;
+    switch (index % 3) {
+        case 0: return 70;
+        case 1: return 100;
+        case 2: return 90;
+        default: return 110;
+    }
 }
 - (CGFloat)waterflowView:(HHWaterFlowView *)waterFlowView marginForType:(HHWaterFlowViewMarginType)type
 {
