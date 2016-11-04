@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA80BD451DCC51E4004E58EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD441DCC51E4004E58EC /* main.m */; };
+		DA80BD481DCC51E4004E58EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD471DCC51E4004E58EC /* AppDelegate.m */; };
+		DA80BD4B1DCC51E4004E58EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD4A1DCC51E4004E58EC /* ViewController.m */; };
+		DA80BD4E1DCC51E4004E58EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA80BD4C1DCC51E4004E58EC /* Main.storyboard */; };
+		DA80BD501DCC51E4004E58EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA80BD4F1DCC51E4004E58EC /* Assets.xcassets */; };
+		DA80BD531DCC51E4004E58EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA80BD511DCC51E4004E58EC /* LaunchScreen.storyboard */; };
+		DA80BD5E1DCC51E4004E58EC /* ____UIScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD5D1DCC51E4004E58EC /* ____UIScrollViewTests.m */; };
+		DA80BD691DCC51E4004E58EC /* ____UIScrollViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD681DCC51E4004E58EC /* ____UIScrollViewUITests.m */; };
+		DA80BD791DCC5C11004E58EC /* HHWaterFlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD781DCC5C11004E58EC /* HHWaterFlowView.m */; };
+		DA80BD7C1DCC5CD8004E58EC /* HHWaterFlowViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80BD7B1DCC5CD8004E58EC /* HHWaterFlowViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA80BD5A1DCC51E4004E58EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA80BD381DCC51E4004E58EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA80BD3F1DCC51E4004E58EC;
+			remoteInfo = "瀑布流-UIScrollView";
+		};
+		DA80BD651DCC51E4004E58EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA80BD381DCC51E4004E58EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA80BD3F1DCC51E4004E58EC;
+			remoteInfo = "瀑布流-UIScrollView";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA80BD401DCC51E4004E58EC /* 瀑布流-UIScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "瀑布流-UIScrollView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA80BD441DCC51E4004E58EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA80BD461DCC51E4004E58EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DA80BD471DCC51E4004E58EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DA80BD491DCC51E4004E58EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DA80BD4A1DCC51E4004E58EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DA80BD4D1DCC51E4004E58EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DA80BD4F1DCC51E4004E58EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA80BD521DCC51E4004E58EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA80BD541DCC51E4004E58EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA80BD591DCC51E4004E58EC /* 瀑布流-UIScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "瀑布流-UIScrollViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA80BD5D1DCC51E4004E58EC /* ____UIScrollViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UIScrollViewTests.m"; sourceTree = "<group>"; };
+		DA80BD5F1DCC51E4004E58EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA80BD641DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "瀑布流-UIScrollViewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA80BD681DCC51E4004E58EC /* ____UIScrollViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UIScrollViewUITests.m"; sourceTree = "<group>"; };
+		DA80BD6A1DCC51E4004E58EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA80BD771DCC5C11004E58EC /* HHWaterFlowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHWaterFlowView.h; sourceTree = "<group>"; };
+		DA80BD781DCC5C11004E58EC /* HHWaterFlowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHWaterFlowView.m; sourceTree = "<group>"; };
+		DA80BD7A1DCC5CD8004E58EC /* HHWaterFlowViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHWaterFlowViewCell.h; sourceTree = "<group>"; };
+		DA80BD7B1DCC5CD8004E58EC /* HHWaterFlowViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHWaterFlowViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA80BD3D1DCC51E4004E58EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD561DCC51E4004E58EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD611DCC51E4004E58EC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA80BD371DCC51E4004E58EC = {
+			isa = PBXGroup;
+			children = (
+				DA80BD421DCC51E4004E58EC /* 瀑布流-UIScrollView */,
+				DA80BD5C1DCC51E4004E58EC /* 瀑布流-UIScrollViewTests */,
+				DA80BD671DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests */,
+				DA80BD411DCC51E4004E58EC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA80BD411DCC51E4004E58EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD401DCC51E4004E58EC /* 瀑布流-UIScrollView.app */,
+				DA80BD591DCC51E4004E58EC /* 瀑布流-UIScrollViewTests.xctest */,
+				DA80BD641DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA80BD421DCC51E4004E58EC /* 瀑布流-UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD761DCC5BF9004E58EC /* WaterFlow */,
+				DA80BD461DCC51E4004E58EC /* AppDelegate.h */,
+				DA80BD471DCC51E4004E58EC /* AppDelegate.m */,
+				DA80BD491DCC51E4004E58EC /* ViewController.h */,
+				DA80BD4A1DCC51E4004E58EC /* ViewController.m */,
+				DA80BD4C1DCC51E4004E58EC /* Main.storyboard */,
+				DA80BD4F1DCC51E4004E58EC /* Assets.xcassets */,
+				DA80BD511DCC51E4004E58EC /* LaunchScreen.storyboard */,
+				DA80BD541DCC51E4004E58EC /* Info.plist */,
+				DA80BD431DCC51E4004E58EC /* Supporting Files */,
+			);
+			path = "瀑布流-UIScrollView";
+			sourceTree = "<group>";
+		};
+		DA80BD431DCC51E4004E58EC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD441DCC51E4004E58EC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA80BD5C1DCC51E4004E58EC /* 瀑布流-UIScrollViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD5D1DCC51E4004E58EC /* ____UIScrollViewTests.m */,
+				DA80BD5F1DCC51E4004E58EC /* Info.plist */,
+			);
+			path = "瀑布流-UIScrollViewTests";
+			sourceTree = "<group>";
+		};
+		DA80BD671DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD681DCC51E4004E58EC /* ____UIScrollViewUITests.m */,
+				DA80BD6A1DCC51E4004E58EC /* Info.plist */,
+			);
+			path = "瀑布流-UIScrollViewUITests";
+			sourceTree = "<group>";
+		};
+		DA80BD761DCC5BF9004E58EC /* WaterFlow */ = {
+			isa = PBXGroup;
+			children = (
+				DA80BD771DCC5C11004E58EC /* HHWaterFlowView.h */,
+				DA80BD781DCC5C11004E58EC /* HHWaterFlowView.m */,
+				DA80BD7A1DCC5CD8004E58EC /* HHWaterFlowViewCell.h */,
+				DA80BD7B1DCC5CD8004E58EC /* HHWaterFlowViewCell.m */,
+			);
+			path = WaterFlow;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA80BD3F1DCC51E4004E58EC /* 瀑布流-UIScrollView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA80BD6D1DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollView" */;
+			buildPhases = (
+				DA80BD3C1DCC51E4004E58EC /* Sources */,
+				DA80BD3D1DCC51E4004E58EC /* Frameworks */,
+				DA80BD3E1DCC51E4004E58EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "瀑布流-UIScrollView";
+			productName = "瀑布流-UIScrollView";
+			productReference = DA80BD401DCC51E4004E58EC /* 瀑布流-UIScrollView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA80BD581DCC51E4004E58EC /* 瀑布流-UIScrollViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA80BD701DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollViewTests" */;
+			buildPhases = (
+				DA80BD551DCC51E4004E58EC /* Sources */,
+				DA80BD561DCC51E4004E58EC /* Frameworks */,
+				DA80BD571DCC51E4004E58EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA80BD5B1DCC51E4004E58EC /* PBXTargetDependency */,
+			);
+			name = "瀑布流-UIScrollViewTests";
+			productName = "瀑布流-UIScrollViewTests";
+			productReference = DA80BD591DCC51E4004E58EC /* 瀑布流-UIScrollViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DA80BD631DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA80BD731DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollViewUITests" */;
+			buildPhases = (
+				DA80BD601DCC51E4004E58EC /* Sources */,
+				DA80BD611DCC51E4004E58EC /* Frameworks */,
+				DA80BD621DCC51E4004E58EC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA80BD661DCC51E4004E58EC /* PBXTargetDependency */,
+			);
+			name = "瀑布流-UIScrollViewUITests";
+			productName = "瀑布流-UIScrollViewUITests";
+			productReference = DA80BD641DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA80BD381DCC51E4004E58EC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "HCL黄";
+				TargetAttributes = {
+					DA80BD3F1DCC51E4004E58EC = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					DA80BD581DCC51E4004E58EC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = DA80BD3F1DCC51E4004E58EC;
+					};
+					DA80BD631DCC51E4004E58EC = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = DA80BD3F1DCC51E4004E58EC;
+					};
+				};
+			};
+			buildConfigurationList = DA80BD3B1DCC51E4004E58EC /* Build configuration list for PBXProject "瀑布流-UIScrollView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DA80BD371DCC51E4004E58EC;
+			productRefGroup = DA80BD411DCC51E4004E58EC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA80BD3F1DCC51E4004E58EC /* 瀑布流-UIScrollView */,
+				DA80BD581DCC51E4004E58EC /* 瀑布流-UIScrollViewTests */,
+				DA80BD631DCC51E4004E58EC /* 瀑布流-UIScrollViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA80BD3E1DCC51E4004E58EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80BD531DCC51E4004E58EC /* LaunchScreen.storyboard in Resources */,
+				DA80BD501DCC51E4004E58EC /* Assets.xcassets in Resources */,
+				DA80BD4E1DCC51E4004E58EC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD571DCC51E4004E58EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD621DCC51E4004E58EC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA80BD3C1DCC51E4004E58EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80BD7C1DCC5CD8004E58EC /* HHWaterFlowViewCell.m in Sources */,
+				DA80BD4B1DCC51E4004E58EC /* ViewController.m in Sources */,
+				DA80BD481DCC51E4004E58EC /* AppDelegate.m in Sources */,
+				DA80BD791DCC5C11004E58EC /* HHWaterFlowView.m in Sources */,
+				DA80BD451DCC51E4004E58EC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD551DCC51E4004E58EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80BD5E1DCC51E4004E58EC /* ____UIScrollViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA80BD601DCC51E4004E58EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA80BD691DCC51E4004E58EC /* ____UIScrollViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA80BD5B1DCC51E4004E58EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA80BD3F1DCC51E4004E58EC /* 瀑布流-UIScrollView */;
+			targetProxy = DA80BD5A1DCC51E4004E58EC /* PBXContainerItemProxy */;
+		};
+		DA80BD661DCC51E4004E58EC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA80BD3F1DCC51E4004E58EC /* 瀑布流-UIScrollView */;
+			targetProxy = DA80BD651DCC51E4004E58EC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA80BD4C1DCC51E4004E58EC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA80BD4D1DCC51E4004E58EC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DA80BD511DCC51E4004E58EC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA80BD521DCC51E4004E58EC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA80BD6B1DCC51E4004E58EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DA80BD6C1DCC51E4004E58EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA80BD6E1DCC51E4004E58EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "瀑布流-UIScrollView/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DA80BD6F1DCC51E4004E58EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "瀑布流-UIScrollView/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollView";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DA80BD711DCC51E4004E58EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "瀑布流-UIScrollViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/瀑布流-UIScrollView.app/瀑布流-UIScrollView";
+			};
+			name = Debug;
+		};
+		DA80BD721DCC51E4004E58EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "瀑布流-UIScrollViewTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollViewTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/瀑布流-UIScrollView.app/瀑布流-UIScrollView";
+			};
+			name = Release;
+		};
+		DA80BD741DCC51E4004E58EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "瀑布流-UIScrollViewUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "瀑布流-UIScrollView";
+			};
+			name = Debug;
+		};
+		DA80BD751DCC51E4004E58EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "瀑布流-UIScrollViewUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.zwhy.----UIScrollViewUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "瀑布流-UIScrollView";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA80BD3B1DCC51E4004E58EC /* Build configuration list for PBXProject "瀑布流-UIScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA80BD6B1DCC51E4004E58EC /* Debug */,
+				DA80BD6C1DCC51E4004E58EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA80BD6D1DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA80BD6E1DCC51E4004E58EC /* Debug */,
+				DA80BD6F1DCC51E4004E58EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA80BD701DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA80BD711DCC51E4004E58EC /* Debug */,
+				DA80BD721DCC51E4004E58EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA80BD731DCC51E4004E58EC /* Build configuration list for PBXNativeTarget "瀑布流-UIScrollViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA80BD741DCC51E4004E58EC /* Debug */,
+				DA80BD751DCC51E4004E58EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA80BD381DCC51E4004E58EC /* Project object */;
+}
